@@ -1,5 +1,4 @@
 # Build & temporary files
-relatorio_preview.html
 target/
 **/target/
 *.class
@@ -14,4 +13,8 @@ Thumbs.db
 # Dependencies
 **/node_modules/
 
+# Local backups and docs
 **/.git_backup/
+RELATORIO_A2.*
+relatorio_preview.html
+generate_pdf.py

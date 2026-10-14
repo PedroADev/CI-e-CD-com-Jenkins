@@ -50,6 +50,7 @@
   - `evidencias/p1/05_build_verde.png`: Histórico de builds com status estável (#5).
   - `evidencias/p1/06_junit_verde.png`: Relatório JUnit indicando 0 falhas e todos os testes passando.
   - `evidencias/p1/07_jacoco_coverage_report_verde.png`: Relatório JaCoCo com cobertura de linhas, branches e instruções.
+  - `evidencias/p1/complementares/`: Capturas complementares com consoles de execução (builds #9 e #10), detalhamento dos testes JUnit e abas completas do relatório de cobertura JaCoCo (Line, Branch, Complexity e Files).
 
 ---
 
@@ -80,6 +81,7 @@ O pipeline executou com sucesso absoluto todos os seus estágios definidos:
 - `evidencias/p2/03_stage_view_build2_success.json`: Metadados de cada estágio com durações e status.
 - `evidencias/p2/04_build_summary_build2_success.json`: Resumo consolidado do build.
 - `evidencias/p2/05_stage_view_success.png`: Screenshot do painel **Stage View** no Jenkins com todos os estágios verdes.
+- `evidencias/p2/complementares/`: Capturas complementares com o código do Jenkinsfile na IDE, visualização do grafo de execução de estágios, histórico de builds e saída detalhada dos testes E2E com Cypress.
 
 ---
 

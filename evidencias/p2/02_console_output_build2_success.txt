@@ -1,0 +1,834 @@
+Iniciado pelo usuário admin
+Obtained Jenkinsfile from git file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main # timeout=10
+Fetching upstream changes from file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.51.1.windows.1'
+ > git.exe fetch --tags --force --progress -- file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 5efbb5d5215527cae11349a6f1ffedd09eed6859 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 5efbb5d5215527cae11349a6f1ffedd09eed6859 # timeout=10
+Commit message: "Initial commit jogo-enigma-api"
+ > git.exe rev-list --no-walk 5efbb5d5215527cae11349a6f1ffedd09eed6859 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (0 - Preflight do Ambiente)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] echo
+Plataforma Jenkins: Windows
+[Pipeline] echo
+>>> [1/4] JAVA - verificando runtime usado pelo agente Jenkins
+[Pipeline] timeout
+Timeout set to expire in 30 seg
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>java -version 
+openjdk version "17.0.20.1" 2026-08-18
+OpenJDK Runtime Environment Temurin-17.0.20.1+1 (build 17.0.20.1+1)
+OpenJDK 64-Bit Server VM Temurin-17.0.20.1+1 (build 17.0.20.1+1, mixed mode, sharing)
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] echo
+>>> [OK 1/4] JAVA
+[Pipeline] echo
+>>> [2/4] DOCKER CLI/ENGINE - verificando comunicacao cliente-servidor
+[Pipeline] timeout
+Timeout set to expire in 1 min 0 seg
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker version 
+Client:
+ Version:           29.8.0
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        88096ef
+ Built:             Thu Sep  3 21:53:38 2026
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.92.0 (240144)
+ Engine:
+  Version:          29.8.0
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.26.8
+  Git commit:       3ce5872
+  Built:            Thu Sep  3 21:51:20 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.5
+  GitCommit:        1294c24a7da8e5a793ed378161673abe94118892
+ runc:
+  Version:          1.5.1
+  GitCommit:        v1.5.1-0-g8f2685a4
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] echo
+>>> [OK 2/4] DOCKER CLI/ENGINE
+[Pipeline] echo
+>>> [3/4] DOCKER COMPOSE - verificando plugin Compose
+[Pipeline] timeout
+Timeout set to expire in 30 seg
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose version 
+Docker Compose version v5.5.1
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] echo
+>>> [OK 3/4] DOCKER COMPOSE
+[Pipeline] echo
+>>> [4/4] DOCKER ENGINE - verificando acesso completo ao daemon
+[Pipeline] timeout
+Timeout set to expire in 1 min 0 seg
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker info 
+Client:
+ Version:    29.8.0
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.140.0
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-agent.exe
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.31.0
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-ai.exe
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.37.1
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-buildx.exe
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.5.1
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-compose.exe
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-debug.exe
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.4
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-desktop.exe
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.7
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-dhi.exe
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-extension.exe
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-init.exe
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.43.3
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-mcp.exe
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.6
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-model.exe
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.27
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-offload.exe
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.2.2
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-pass.exe
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-sandbox.exe
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.24.0
+    Path:     C:\Users\pedro\.docker\cli-plugins\docker-scout.exe
+
+Server:
+ Containers: 7
+  Running: 6
+  Paused: 0
+  Stopped: 1
+ Images: 15
+ Server Version: 29.8.0
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1294c24a7da8e5a793ed378161673abe94118892
+ runc version: v1.5.1-0-g8f2685a4
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.18.54.1-microsoft-standard-WSL2
+ Operating System: Docker Desktop (containerized)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 16
+ Total Memory: 7.691GiB
+ Name: docker-desktop
+ ID: c17afb16-c722-431a-b8c0-6c68d240d532
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] echo
+>>> [OK 4/4] DOCKER ENGINE
+[Pipeline] echo
+>>> PREFLIGHT CONCLUIDO COM SUCESSO
+[Pipeline] echo
+[OK] Maven, Node, npm e Cypress globais nao sao obrigatorios.
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (1 - Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main # timeout=10
+Fetching upstream changes from file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.51.1.windows.1'
+ > git.exe fetch --tags --force --progress -- file:///C:/Users/pedro/Downloads/integracao_v1/jogo-enigma-api-v1-A2-portavel-v5.1-main +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 5efbb5d5215527cae11349a6f1ffedd09eed6859 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 5efbb5d5215527cae11349a6f1ffedd09eed6859 # timeout=10
+Commit message: "Initial commit jogo-enigma-api"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (2 - CI - JUnit + Testcontainers + JaCoCo)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>call mvnw.cmd -B clean test 
+[OK] Maven 3.9.11 encontrado no cache do Wrapper.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< br.edu.exemplo:jogo-enigma-api >-------------------
+[INFO] Building jogo-enigma-api 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ jogo-enigma-api ---
+[INFO] Deleting C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (prepare-agent) @ jogo-enigma-api ---
+[INFO] argLine set to -javaagent:C:\\Users\\pedro\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.13\\org.jacoco.agent-0.8.13-runtime.jar=destfile=C:\\Users\\pedro\\.jenkins\\workspace\\A2_P2_jogo_enigma_pipeline\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jogo-enigma-api ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ jogo-enigma-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 9 source files with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jogo-enigma-api ---
+[INFO] skip non existing resourceDirectory C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ jogo-enigma-api ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 6 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ jogo-enigma-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running br.edu.exemplo.jogoenigma.controller.ParticipanteControllerTest
+21:23:39.470 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [br.edu.exemplo.jogoenigma.controller.ParticipanteControllerTest]: ParticipanteControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:23:39.904 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration br.edu.exemplo.jogoenigma.JogoEnigmaApplication for test class br.edu.exemplo.jogoenigma.controller.ParticipanteControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2026-10-13T21:23:40.967-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.c.ParticipanteControllerTest     : Starting ParticipanteControllerTest using Java 17.0.20.1 with PID 32692 (started by pedro in C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline)
+2026-10-13T21:23:40.970-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.c.ParticipanteControllerTest     : The following 1 profile is active: "dev"
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-13T21:23:44.891-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-13T21:23:44.891-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-13T21:23:44.894-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-10-13T21:23:44.952-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.c.ParticipanteControllerTest     : Started ParticipanteControllerTest in 4.846 seconds (process running for 7.107)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.263 s -- in br.edu.exemplo.jogoenigma.controller.ParticipanteControllerTest
+[INFO] Running br.edu.exemplo.jogoenigma.dto.ParticipanteRequestTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 s -- in br.edu.exemplo.jogoenigma.dto.ParticipanteRequestTest
+[INFO] Running br.edu.exemplo.jogoenigma.entity.ParticipanteTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in br.edu.exemplo.jogoenigma.entity.ParticipanteTest
+[INFO] Running br.edu.exemplo.jogoenigma.repository.ParticipanteRepositoryTest
+2026-10-13T21:23:45.633-03:00  INFO 32692 --- [jogo-enigma-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.edu.exemplo.jogoenigma.repository.ParticipanteRepositoryTest]: ParticipanteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-13T21:23:45.774-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
+2026-10-13T21:23:45.785-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2026-10-13T21:23:45.828-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.DockerClientFactory   : Testcontainers version: 1.21.4
+2026-10-13T21:23:46.366-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.t.d.DockerClientProviderStrategy       : Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2026-10-13T21:23:46.954-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.t.d.DockerClientProviderStrategy       : Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2026-10-13T21:23:46.957-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
+2026-10-13T21:23:46.992-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.DockerClientFactory   : Connected to docker: 
+  Server Version: 29.8.0
+  API Version: 1.56
+  Operating System: Docker Desktop (containerized)
+  Total Memory: 7875 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+2026-10-13T21:23:47.188-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.testcontainers/ryuk:0.12.0            : Creating container for image: testcontainers/ryuk:0.12.0
+2026-10-13T21:23:47.809-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.testcontainers/ryuk:0.12.0            : Container testcontainers/ryuk:0.12.0 is starting: beee126ef195a4983f4128ce161ad9ed35d04498d816c8693f348dd52771f5e6
+2026-10-13T21:23:48.637-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.testcontainers/ryuk:0.12.0            : Container testcontainers/ryuk:0.12.0 started in PT1.4486143S
+2026-10-13T21:23:48.679-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.t.utility.RyukResourceReaper           : Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2026-10-13T21:23:48.680-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.DockerClientFactory   : Checking the system...
+2026-10-13T21:23:48.686-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.testcontainers.DockerClientFactory   : ?? Docker server version should be at least 1.6.0
+2026-10-13T21:23:48.734-03:00  INFO 32692 --- [jogo-enigma-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.edu.exemplo.jogoenigma.JogoEnigmaApplication for test class br.edu.exemplo.jogoenigma.repository.ParticipanteRepositoryTest
+2026-10-13T21:23:48.739-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.postgres:17-alpine                    : Creating container for image: postgres:17-alpine
+2026-10-13T21:23:48.866-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.postgres:17-alpine                    : Container postgres:17-alpine is starting: f09a6addb23716de15423ed9a11bfc531ef702fda3130f7a26075af6b2ff9344
+2026-10-13T21:23:51.700-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.postgres:17-alpine                    : Container postgres:17-alpine started in PT2.9611309S
+2026-10-13T21:23:51.702-03:00  INFO 32692 --- [jogo-enigma-api] [           main] tc.postgres:17-alpine                    : Container is started (JDBC URL: jdbc:postgresql://localhost:55697/test?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2026-10-13T21:23:51.789-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.r.ParticipanteRepositoryTest     : Starting ParticipanteRepositoryTest using Java 17.0.20.1 with PID 32692 (started by pedro in C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline)
+2026-10-13T21:23:51.789-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.r.ParticipanteRepositoryTest     : The following 1 profile is active: "dev"
+2026-10-13T21:23:52.061-03:00  INFO 32692 --- [jogo-enigma-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-13T21:23:52.124-03:00  INFO 32692 --- [jogo-enigma-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2026-10-13T21:23:52.496-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-13T21:23:52.614-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-10-13T21:23:52.673-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-13T21:23:52.924-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-13T21:23:52.981-03:00  INFO 32692 --- [jogo-enigma-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-13T21:23:53.263-03:00  INFO 32692 --- [jogo-enigma-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b7db502
+2026-10-13T21:23:53.267-03:00  INFO 32692 --- [jogo-enigma-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-13T21:23:53.400-03:00  INFO 32692 --- [jogo-enigma-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.11
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-13T21:23:54.677-03:00  INFO 32692 --- [jogo-enigma-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table participantes (id bigint generated by default as identity, email varchar(255) not null, nome varchar(255) not null, pontos integer not null, primary key (id))
+Hibernate: alter table if exists participantes drop constraint if exists UKagb8wxjal1bumeala1q0m7pou
+2026-10-13T21:23:54.771-03:00  WARN 32692 --- [jogo-enigma-api] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2026-10-13T21:23:54.772-03:00  WARN 32692 --- [jogo-enigma-api] [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukagb8wxjal1bumeala1q0m7pou" of relation "participantes" does not exist, skipping
+Hibernate: alter table if exists participantes add constraint UKagb8wxjal1bumeala1q0m7pou unique (email)
+2026-10-13T21:23:54.778-03:00  INFO 32692 --- [jogo-enigma-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-13T21:23:55.255-03:00  INFO 32692 --- [jogo-enigma-api] [           main] b.e.e.j.r.ParticipanteRepositoryTest     : Started ParticipanteRepositoryTest in 3.549 seconds (process running for 17.411)
+Hibernate: insert into participantes (email,nome,pontos) values (?,?,?)
+Hibernate: select p1_0.id,p1_0.email,p1_0.nome,p1_0.pontos from participantes p1_0 where p1_0.email=?
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.32 s -- in br.edu.exemplo.jogoenigma.repository.ParticipanteRepositoryTest
+[INFO] Running br.edu.exemplo.jogoenigma.service.ParticipanteServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 s -- in br.edu.exemplo.jogoenigma.service.ParticipanteServiceTest
+[INFO] Running br.edu.exemplo.jogoenigma.vo.EmailTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in br.edu.exemplo.jogoenigma.vo.EmailTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.13:report (report) @ jogo-enigma-api ---
+[INFO] Loading execution data file C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target\jacoco.exec
+[INFO] Analyzed bundle 'jogo-enigma-api' with 8 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.470 s
+[INFO] Finished at: 2026-10-13T21:23:57-03:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] junit
+Gravando o resultado dos testes
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Arquivando artefatos
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (3 - CI - Qualidade PMD)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>call mvnw.cmd -B pmd:pmd -DskipTests 
+[OK] Maven 3.9.11 encontrado no cache do Wrapper.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< br.edu.exemplo:jogo-enigma-api >-------------------
+[INFO] Building jogo-enigma-api 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pmd:3.26.0:pmd (default-cli) @ jogo-enigma-api ---
+[WARNING] Unable to locate Source XRef to link to -- DISABLED
+[INFO] PMD version: 7.7.0
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Rendering content with org.apache.maven.skins:maven-fluido-skin:jar:2.0.0-M9 skin
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.230 s
+[INFO] Finished at: 2026-10-13T21:24:05-03:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] archiveArtifacts
+Arquivando artefatos
+'target/site/pmd.html' não encontrado: 'target' existe, mas não 'target/site/pmd.html'
+Nenhum artefato encontrado casa com o padrão de arquivo "target/site/pmd.html". Erro de configuração?
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (4 - CI - Package)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>call mvnw.cmd -B package -DskipTests 
+[OK] Maven 3.9.11 encontrado no cache do Wrapper.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< br.edu.exemplo:jogo-enigma-api >-------------------
+[INFO] Building jogo-enigma-api 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (prepare-agent) @ jogo-enigma-api ---
+[INFO] argLine set to -javaagent:C:\\Users\\pedro\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.13\\org.jacoco.agent-0.8.13-runtime.jar=destfile=C:\\Users\\pedro\\.jenkins\\workspace\\A2_P2_jogo_enigma_pipeline\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jogo-enigma-api ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ jogo-enigma-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jogo-enigma-api ---
+[INFO] skip non existing resourceDirectory C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ jogo-enigma-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ jogo-enigma-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco:0.8.13:report (report) @ jogo-enigma-api ---
+[INFO] Loading execution data file C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target\jacoco.exec
+[INFO] Analyzed bundle 'jogo-enigma-api' with 8 classes
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ jogo-enigma-api ---
+[INFO] Building jar: C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target\jogo-enigma-api-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.5.5:repackage (repackage) @ jogo-enigma-api ---
+[INFO] Replacing main artifact C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target\jogo-enigma-api-1.0.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline\target\jogo-enigma-api-1.0.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.599 s
+[INFO] Finished at: 2026-10-13T21:24:11-03:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (5 - CD - Build dos Containers)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose -f docker-compose.homol.yml build api bff 
+ Image andprof/jogo-enigma-api:2 Building 
+ Image a2_p2_jogo_enigma_pipeline-bff Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB 0.0s done
+#1 DONE 0.0s
+
+#2 [bff internal] load build definition from Dockerfile
+#2 transferring dockerfile: 156B 0.0s done
+#2 DONE 0.1s
+
+#3 [api internal] load build definition from Dockerfile
+#3 transferring dockerfile: 548B 0.0s done
+#3 DONE 0.1s
+
+#4 [bff internal] load metadata for docker.io/library/node:22-alpine
+#4 ...
+
+#5 [auth] library/node:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [auth] library/maven:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#7 DONE 0.0s
+
+#8 [api internal] load metadata for docker.io/library/eclipse-temurin:17-jre-alpine
+#8 ...
+
+#4 [bff internal] load metadata for docker.io/library/node:22-alpine
+#4 DONE 1.1s
+
+#9 [bff internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.0s
+
+#10 [bff internal] load build context
+#10 transferring context: 299B done
+#10 DONE 0.0s
+
+#11 [bff 1/5] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#11 resolve docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 0.0s done
+#11 DONE 0.0s
+
+#12 [bff 4/5] RUN npm install
+#12 CACHED
+
+#13 [bff 2/5] WORKDIR /app
+#13 CACHED
+
+#14 [bff 3/5] COPY package*.json ./
+#14 CACHED
+
+#15 [bff 5/5] COPY . .
+#15 CACHED
+
+#16 [bff] exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:801dbf1883fc708d221d111f80f6e431a4fd5a5b74a853a5d0d10e5d3d460f9c done
+#16 exporting config sha256:fdadf6a8dbccf229326db418c956a98960486589de8f94605cf844ba97deb972 done
+#16 exporting attestation manifest sha256:9b6fdc8a6d12495a09b9da1d5e0c6cbaee11ddcbb9ee399ff05dc7c4de0f5ae6 0.0s done
+#16 exporting manifest list sha256:6c5dbb323b573802d59b15174fb941150fccd9ef6e027bfb83ec4f2af73a9cea 0.0s done
+#16 naming to docker.io/library/a2_p2_jogo_enigma_pipeline-bff:latest done
+#16 unpacking to docker.io/library/a2_p2_jogo_enigma_pipeline-bff:latest
+#16 unpacking to docker.io/library/a2_p2_jogo_enigma_pipeline-bff:latest 0.0s done
+#16 DONE 0.2s
+
+#17 [api internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-17
+#17 DONE 1.4s
+
+#8 [api internal] load metadata for docker.io/library/eclipse-temurin:17-jre-alpine
+#8 DONE 1.4s
+
+#18 [api internal] load .dockerignore
+#18 transferring context: 2B done
+#18 DONE 0.0s
+
+#19 [api internal] load build context
+#19 DONE 0.0s
+
+#20 [api build 1/6] FROM docker.io/library/maven:3.9-eclipse-temurin-17@sha256:1a352420f7aba21f5ad08df31bab55f74c013fb491f1ae8ab1dd7ff9ed698584
+#20 resolve docker.io/library/maven:3.9-eclipse-temurin-17@sha256:1a352420f7aba21f5ad08df31bab55f74c013fb491f1ae8ab1dd7ff9ed698584 0.1s done
+#20 DONE 0.1s
+
+#21 [api stage-1 1/4] FROM docker.io/library/eclipse-temurin:17-jre-alpine@sha256:3c472129dc75a8d1d7a3f2df5b2093a8077e4493deff046754d4764d0371de63
+#21 resolve docker.io/library/eclipse-temurin:17-jre-alpine@sha256:3c472129dc75a8d1d7a3f2df5b2093a8077e4493deff046754d4764d0371de63 0.1s done
+#21 DONE 0.1s
+
+#19 [api internal] load build context
+#19 transferring context: 2.99kB 0.0s done
+#19 DONE 0.0s
+
+#22 [api stage-1 2/4] WORKDIR /app
+#22 CACHED
+
+#23 [api stage-1 3/4] RUN addgroup -S app && adduser -S app -G app
+#23 CACHED
+
+#24 [api build 4/6] RUN mvn -B -q -DskipTests dependency:go-offline
+#24 CACHED
+
+#25 [api build 6/6] RUN mvn -B -DskipTests clean package
+#25 CACHED
+
+#26 [api build 2/6] WORKDIR /workspace
+#26 CACHED
+
+#27 [api build 3/6] COPY pom.xml .
+#27 CACHED
+
+#28 [api build 5/6] COPY src ./src
+#28 CACHED
+
+#29 [api stage-1 4/4] COPY --from=build /workspace/target/jogo-enigma-api-*.jar /app/app.jar
+#29 CACHED
+
+#30 [api] exporting to image
+#30 exporting layers done
+#30 exporting manifest sha256:6e28a45c44bfa3842b04177543752d22d952fd36ac83506870ed3821ea419345 done
+#30 exporting config sha256:5871fc49e8b9cf401b53493b971f93ee09d31e03175dfd76e6bedac0a84c5498 done
+#30 exporting attestation manifest sha256:d850ff058ece6b8144ecf26d3c3be6550542d96b046ec1a7006588974be7d8a8
+#30 exporting attestation manifest sha256:d850ff058ece6b8144ecf26d3c3be6550542d96b046ec1a7006588974be7d8a8 0.0s done
+#30 exporting manifest list sha256:ce639b81f409005c893acbacf525da9db956e33d78402caeb39016324c96f333 0.0s done
+#30 naming to docker.io/andprof/jogo-enigma-api:2 done
+#30 unpacking to docker.io/andprof/jogo-enigma-api:2 0.0s done
+#30 DONE 0.2s
+
+#31 [bff] resolving provenance for metadata file
+#31 DONE 0.1s
+
+#32 [api] resolving provenance for metadata file
+#32 DONE 0.0s
+ Image andprof/jogo-enigma-api:2 Built 
+ Image a2_p2_jogo_enigma_pipeline-bff Built 
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (6 - Registry - Docker Hub (opcional))
+Stage "6 - Registry - Docker Hub (opcional)" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (7 - CD - Deploy HOMOL)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose -f docker-compose.homol.yml down --remove-orphans 
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose -f docker-compose.homol.yml up -d postgres pgadmin api bff prometheus grafana 
+ Network a2_p2_jogo_enigma_pipeline_default Creating 
+ Network a2_p2_jogo_enigma_pipeline_default Creating 
+ Network a2_p2_jogo_enigma_pipeline_default Created 
+ Network a2_p2_jogo_enigma_pipeline_default Created 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-pgadmin-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-api-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-api-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-prometheus-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-bff-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-pgadmin-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-bff-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-prometheus-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-grafana-1 Creating 
+ Container a2_p2_jogo_enigma_pipeline-grafana-1 Created 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Started 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Waiting 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Waiting 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Healthy 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Healthy 
+ Container a2_p2_jogo_enigma_pipeline-api-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-pgadmin-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-api-1 Started 
+ Container a2_p2_jogo_enigma_pipeline-prometheus-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-bff-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-pgadmin-1 Started 
+ Container a2_p2_jogo_enigma_pipeline-prometheus-1 Started 
+ Container a2_p2_jogo_enigma_pipeline-grafana-1 Starting 
+ Container a2_p2_jogo_enigma_pipeline-bff-1 Started 
+ Container a2_p2_jogo_enigma_pipeline-grafana-1 Started 
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (8 - CD - Health Check HOMOL)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose -f docker-compose.homol.yml exec -T bff node -e "let n=0; const t=setInterval(async()=>{n++;try{const r=await fetch('http://api:8080/actuator/health');if(r.ok){console.log(await r.text());clearInterval(t);process.exit(0)}}catch(e){} if(n>=18){clearInterval(t);process.exit(1)}},5000)" 
+{"status":"UP","groups":["liveness","readiness"]}
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (9 - CD - Cypress E2E em Container)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+
+C:\Users\pedro\.jenkins\workspace\A2_P2_jogo_enigma_pipeline>docker compose -f docker-compose.homol.yml --profile e2e run --rm cypress 
+ Container a2_p2_jogo_enigma_pipeline-api-1 Running 
+ Container a2_p2_jogo_enigma_pipeline-bff-1 Running 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Running 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Waiting 
+ Container a2_p2_jogo_enigma_pipeline-postgres-1 Healthy 
+ Container a2_p2_jogo_enigma_pipeline-cypress-run-97db1673cf52 Creating 
+ Container a2_p2_jogo_enigma_pipeline-cypress-run-97db1673cf52 Created 
+[STARTED] Task without title.
+[SUCCESS] Task without title.
+
+DevTools listening on ws://127.0.0.1:39767/devtools/browser/9488b967-3ebb-4cd6-a727-7b3c11a68c64
+
+[90m====================================================================================================[39m
+
+[0m  ([4m[1mRun Starting[22m[24m)[0m
+
+[90m  ┌[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┐[39m
+[90m  │[39m [90mCypress:[39m        14.5.4                                                                         [90m│[39m
+[90m  │[39m [90mBrowser:[39m        Electron 130 [90m(headless)[39m                                                        [90m│[39m
+[90m  │[39m [90mNode Version:[39m   [0mv22.18.0 [90m(/usr/local/bin/node)[39m[0m                                                 [90m│[39m
+[90m  │[39m [90mSpecs:[39m          [0m1 found (jogo-enigma.cy.js)[0m                                                    [90m│[39m
+[90m  │[39m [90mSearched:[39m       [0mcypress**/*.cy.{js,jsx,ts,tsx}[0m                                                 [90m│[39m
+[90m  └[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┘[39m
+
+
+[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m
+                                                                                                    
+  Running:  [90mjogo-enigma.cy.js[39m                                                               [90m(1 of 1)[39m
+
+[0m[0m
+[0m  Jogo Enigma E2E - Homologacao[0m
+  [32m  ✓[0m[90m 1 - abre a home via BFF[0m[90m (205ms)[0m
+  [32m  ✓[0m[90m 2 - cadastra participante ponta a ponta[0m[90m (1782ms)[0m
+  [32m  ✓[0m[90m 3 - rejeita email duplicado via API/BFF[0m[90m (93ms)[0m
+
+
+[92m [0m[32m 3 passing[0m[90m (2s)[0m
+
+
+[32m  ([4m[1mResults[22m[24m)[39m
+
+[90m  ┌[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┐[39m
+[90m  │[39m [90mTests:[39m        [32m3[39m                                                                                [90m│[39m
+[90m  │[39m [90mPassing:[39m      [32m3[39m                                                                                [90m│[39m
+[90m  │[39m [90mFailing:[39m      [32m0[39m                                                                                [90m│[39m
+[90m  │[39m [90mPending:[39m      [32m0[39m                                                                                [90m│[39m
+[90m  │[39m [90mSkipped:[39m      [32m0[39m                                                                                [90m│[39m
+[90m  │[39m [90mScreenshots:[39m  [32m0[39m                                                                                [90m│[39m
+[90m  │[39m [90mVideo:[39m        [32mfalse[39m                                                                            [90m│[39m
+[90m  │[39m [90mDuration:[39m     [32m2 seconds[39m                                                                        [90m│[39m
+[90m  │[39m [90mSpec Ran:[39m     [32m[32mjogo-enigma.cy.js[32m[39m                                                                [90m│[39m
+[90m  └[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┘[39m
+
+
+[90m====================================================================================================[39m
+
+[0m  ([4m[1mRun Finished[22m[24m)[0m
+
+
+[90m   [39m    [90mSpec[39m                                              [90mTests[39m  [90mPassing[39m  [90mFailing[39m  [90mPending[39m  [90mSkipped[39m [90m [39m
+[90m  ┌[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┐[39m
+[90m  │[39m [32m✔[39m  [0mjogo-enigma.cy.js[0m                        [90m00:02[39m        [0m3[0m        [32m3[39m        [90m-[39m        [90m-[39m        [90m-[39m [90m│[39m
+[90m  └[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m─[39m[90m┘[39m
+[90m   [39m [32m✔[39m  [32mAll specs passed![39m                        [90m00:02[39m        [0m3[0m        [32m3[39m        [90m-[39m        [90m-[39m        [90m-[39m [90m [39m
+
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] archiveArtifacts
+Arquivando artefatos
+'frontend/cypress/screenshots/**' não corresponde a nada, mas '**' sim. Talvez seja isto que você quis dizer?
+Nenhum artefato encontrado casa com o padrão de arquivo "frontend/cypress/screenshots/**,frontend/cypress/videos/**". Erro de configuração?
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (10 - Observabilidade)
+[Pipeline] echo
+API: http://localhost:8081
+[Pipeline] echo
+BFF/Front: http://localhost:3000
+[Pipeline] echo
+pgAdmin: http://localhost:5050
+[Pipeline] echo
+Prometheus: http://localhost:9091
+[Pipeline] echo
+Grafana: http://localhost:3001
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] archiveArtifacts
+Arquivando artefatos
+[Pipeline] echo
+Pipeline V5.1 concluido: Windows/macOS/Linux, Testcontainers, HOMOL, E2E e observabilidade aprovados.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -1,0 +1,35 @@
+{
+  "results": {
+    "api_health": {
+      "status": 200,
+      "ok": true,
+      "body": "{\"status\":\"UP\",\"groups\":[\"liveness\",\"readiness\"]}"
+    },
+    "bff": {
+      "status": 200,
+      "ok": true,
+      "body": "<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\"><title>Jogo Enigma</title><style>body{font-family:Arial;max-width:760px;margin:40px auto}input,button{padding:10px;margin:4px}li{margin:8px}</style></head><body><h1>Jogo Enigma</h1><p>Front \u2192 BFF Node.js \u2192 API Spring Boot \u2192 PostgreSQL</p><form id=\"f\"><input id=\"nome\" placeholder=\"Nome\" required><input id=\"email\" type=\"email\" placeholder=\"E-mail\" required><input id=\"pontos\" type=\"number\" min=\"0\" max=\"100\" value=\"0\"><button>Cadastrar</b"
+    },
+    "prometheus_targets": {
+      "status": 200,
+      "ok": true,
+      "body": "{\"status\":\"success\",\"data\":{\"activeTargets\":[{\"discoveredLabels\":{\"__address__\":\"api:8080\",\"__always_scrape_classic_histograms__\":\"false\",\"__convert_classic_histograms_to_nhcb__\":\"false\",\"__metrics_path__\":\"/actuator/prometheus\",\"__scheme__\":\"http\",\"__scrape_interval__\":\"15s\",\"__scrape_native_histograms__\":\"false\",\"__scrape_timeout__\":\"10s\",\"job\":\"jogo-enigma-api\"},\"labels\":{\"instance\":\"api:8080\",\"job\":\"jogo-enigma-api\"},\"scrapePool\":\"jogo-enigma-api\",\"scrapeUrl\":\"http://api:8080/actuator/promet"
+    },
+    "prometheus_query": {
+      "status": 200,
+      "ok": true,
+      "body": "{\"status\":\"success\",\"data\":{\"resultType\":\"vector\",\"result\":[{\"metric\":{\"__name__\":\"up\",\"instance\":\"api:8080\",\"job\":\"jogo-enigma-api\"},\"value\":[1791937522.370,\"1\"]}]}}"
+    },
+    "grafana_health": {
+      "status": 200,
+      "ok": true,
+      "body": "{\n  \"database\": \"ok\",\n  \"version\": \"13.2.4\",\n  \"commit\": \"0e79aef9d91abf3bdadae9af15763029072fb45b\"\n}"
+    },
+    "grafana_datasources": {
+      "status": 200,
+      "ok": true,
+      "body": "[{\"id\":1,\"uid\":\"PBFA97CFB590B2093\",\"orgId\":1,\"name\":\"Prometheus\",\"type\":\"prometheus\",\"typeName\":\"Prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://prometheus:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"isDefault\":true,\"jsonData\":{},\"readOnly\":true}]"
+    }
+  },
+  "all_ok": true
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Windows PowerShell - docker ps</title>
+<style>
+  body {
+    background-color: #0c0c0c;
+    color: #cccccc;
+    font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .window {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 16px 20px;
+  }
+  .header {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .prompt {
+    color: #ffffff;
+  }
+  .command {
+    color: #f1f1f1;
+    font-weight: 600;
+  }
+  pre {
+    margin: 8px 0 20px 0;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .th {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  .name {
+    color: #569cd6;
+  }
+  .status-up {
+    color: #4ec9b0;
+  }
+  .status-healthy {
+    color: #6a9955;
+  }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="prompt">PS C:\Users\pedro\Downloads\integracao_v1&gt; <span class="command">docker ps --filter "name=jogo-enigma"</span></div>
+  <pre>CONTAINER ID   IMAGE                                         COMMAND                  CREATED          STATUS                    PORTS                                         NAMES
+5f3e2bac1f3e   grafana/grafana:latest                        "/run.sh"                18 minutes ago   Up 18 minutes             0.0.0.0:3001->3000/tcp, [::]:3001->3000/tcp   jogo-enigma-api-v1-a2-portavel-v51-main-grafana-1
+d00e37968263   prom/prometheus:latest                        "/bin/prometheus --c…"   18 minutes ago   Up 18 minutes             0.0.0.0:9091->9090/tcp, [::]:9091->9090/tcp   jogo-enigma-api-v1-a2-portavel-v51-main-prometheus-1
+98f28ca50bc0   jogo-enigma-api-v1-a2-portavel-v51-main-bff   "docker-entrypoint.s…"   18 minutes ago   Up 18 minutes             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   jogo-enigma-api-v1-a2-portavel-v51-main-bff-1
+f6aa5bf25f6d   dpage/pgadmin4:9                              "/entrypoint.sh"         18 minutes ago   Up 18 minutes             0.0.0.0:5050->80/tcp, [::]:5050->80/tcp       jogo-enigma-api-v1-a2-portavel-v51-main-pgadmin-1
+d2d776a4dad0   andprof/jogo-enigma-api:2                     "java -jar /app/app.…"   18 minutes ago   Up 18 minutes             0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   jogo-enigma-api-v1-a2-portavel-v51-main-api-1
+0d83c0794877   postgres:17-alpine                            "docker-entrypoint.s…"   18 minutes ago   Up 18 minutes (healthy)   5432/tcp                                      jogo-enigma-api-v1-a2-portavel-v51-main-postgres-1</pre>
+  
+  <div class="prompt">PS C:\Users\pedro\Downloads\integracao_v1&gt; <span class="command">docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"</span></div>
+  <pre>NAMES                                                  STATUS                    PORTS
+jogo-enigma-api-v1-a2-portavel-v51-main-grafana-1      Up 18 minutes             0.0.0.0:3001->3000/tcp, [::]:3001->3000/tcp
+jogo-enigma-api-v1-a2-portavel-v51-main-prometheus-1   Up 18 minutes             0.0.0.0:9091->9090/tcp, [::]:9091->9090/tcp
+jogo-enigma-api-v1-a2-portavel-v51-main-bff-1          Up 18 minutes             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+jogo-enigma-api-v1-a2-portavel-v51-main-pgadmin-1      Up 18 minutes             0.0.0.0:5050->80/tcp, [::]:5050->80/tcp
+jogo-enigma-api-v1-a2-portavel-v51-main-api-1          Up 18 minutes             0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+jogo-enigma-api-v1-a2-portavel-v51-main-postgres-1     Up 18 minutes (healthy)   5432/tcp</pre>
+  
+  <div class="prompt">PS C:\Users\pedro\Downloads\integracao_v1&gt; <span style="display:inline-block;width:8px;height:15px;background:#fff;vertical-align:middle;animation:blink 1s step-end infinite;"></span></div>
+</div>
+</body>
+</html>

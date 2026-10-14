@@ -1,0 +1,72 @@
+{
+  "job": "A2_P2_jogo_enigma_pipeline",
+  "build_number": 2,
+  "result": "SUCCESS",
+  "stages": [
+    {
+      "name": "Declarative: Checkout SCM",
+      "status": "SUCCESS",
+      "duration_s": 1.6
+    },
+    {
+      "name": "0 - Preflight do Ambiente",
+      "status": "SUCCESS",
+      "duration_s": 3.3
+    },
+    {
+      "name": "1 - Checkout",
+      "status": "SUCCESS",
+      "duration_s": 1.2
+    },
+    {
+      "name": "2 - CI - JUnit + Testcontainers + JaCoCo",
+      "status": "SUCCESS",
+      "duration_s": 26.8
+    },
+    {
+      "name": "3 - CI - Qualidade PMD",
+      "status": "SUCCESS",
+      "duration_s": 8.7
+    },
+    {
+      "name": "4 - CI - Package",
+      "status": "SUCCESS",
+      "duration_s": 5.9
+    },
+    {
+      "name": "5 - CD - Build dos Containers",
+      "status": "SUCCESS",
+      "duration_s": 5.9
+    },
+    {
+      "name": "6 - Registry - Docker Hub (opcional)",
+      "status": "NOT_EXECUTED",
+      "duration_s": 0.1
+    },
+    {
+      "name": "7 - CD - Deploy HOMOL",
+      "status": "SUCCESS",
+      "duration_s": 10.9
+    },
+    {
+      "name": "8 - CD - Health Check HOMOL",
+      "status": "SUCCESS",
+      "duration_s": 12.6
+    },
+    {
+      "name": "9 - CD - Cypress E2E em Container",
+      "status": "SUCCESS",
+      "duration_s": 15.0
+    },
+    {
+      "name": "10 - Observabilidade",
+      "status": "SUCCESS",
+      "duration_s": 0.1
+    },
+    {
+      "name": "Declarative: Post Actions",
+      "status": "SUCCESS",
+      "duration_s": 0.2
+    }
+  ]
+}

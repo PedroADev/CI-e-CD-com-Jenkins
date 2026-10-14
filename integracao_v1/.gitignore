@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Maven
+target/
+
+# Eclipse (not used by this project)
+.classpath
+.project
+.settings/

@@ -1,0 +1,218 @@
+{
+  "_links": {
+    "self": {
+      "href": "/job/A2_P2_jogo_enigma_pipeline/1/wfapi/describe"
+    },
+    "artifacts": {
+      "href": "/job/A2_P2_jogo_enigma_pipeline/1/wfapi/artifacts"
+    }
+  },
+  "id": "1",
+  "name": "#1",
+  "status": "FAILED",
+  "startTimeMillis": 1791933130993,
+  "endTimeMillis": 1791933602233,
+  "durationMillis": 471240,
+  "queueDurationMillis": 19,
+  "pauseDurationMillis": 0,
+  "stages": [
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/6/wfapi/describe"
+        }
+      },
+      "id": "6",
+      "name": "Declarative: Checkout SCM",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933138915,
+      "durationMillis": 2593,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/15/wfapi/describe"
+        }
+      },
+      "id": "15",
+      "name": "0 - Preflight do Ambiente",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933141896,
+      "durationMillis": 4367,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/59/wfapi/describe"
+        }
+      },
+      "id": "59",
+      "name": "1 - Checkout",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933146288,
+      "durationMillis": 1447,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/64/wfapi/describe"
+        }
+      },
+      "id": "64",
+      "name": "2 - CI - JUnit + Testcontainers + JaCoCo",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933147769,
+      "durationMillis": 109059,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/76/wfapi/describe"
+        }
+      },
+      "id": "76",
+      "name": "3 - CI - Qualidade PMD",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933256855,
+      "durationMillis": 22645,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/87/wfapi/describe"
+        }
+      },
+      "id": "87",
+      "name": "4 - CI - Package",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933279529,
+      "durationMillis": 12989,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/97/wfapi/describe"
+        }
+      },
+      "id": "97",
+      "name": "5 - CD - Build dos Containers",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933292556,
+      "durationMillis": 218592,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/107/wfapi/describe"
+        }
+      },
+      "id": "107",
+      "name": "6 - Registry - Docker Hub (opcional)",
+      "execNode": "",
+      "status": "NOT_EXECUTED",
+      "startTimeMillis": 1791933511189,
+      "durationMillis": 785,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/112/wfapi/describe"
+        }
+      },
+      "id": "112",
+      "name": "7 - CD - Deploy HOMOL",
+      "execNode": "",
+      "status": "FAILED",
+      "error": {
+        "message": "script returned exit code 1",
+        "type": "hudson.AbortException"
+      },
+      "startTimeMillis": 1791933512032,
+      "durationMillis": 88401,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/124/wfapi/describe"
+        }
+      },
+      "id": "124",
+      "name": "8 - CD - Health Check HOMOL",
+      "execNode": "",
+      "status": "FAILED",
+      "error": {
+        "message": "script returned exit code 1",
+        "type": "hudson.AbortException"
+      },
+      "startTimeMillis": 1791933600481,
+      "durationMillis": 133,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/129/wfapi/describe"
+        }
+      },
+      "id": "129",
+      "name": "9 - CD - Cypress E2E em Container",
+      "execNode": "",
+      "status": "FAILED",
+      "error": {
+        "message": "script returned exit code 1",
+        "type": "hudson.AbortException"
+      },
+      "startTimeMillis": 1791933600658,
+      "durationMillis": 91,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/134/wfapi/describe"
+        }
+      },
+      "id": "134",
+      "name": "10 - Observabilidade",
+      "execNode": "",
+      "status": "FAILED",
+      "error": {
+        "message": "script returned exit code 1",
+        "type": "hudson.AbortException"
+      },
+      "startTimeMillis": 1791933600787,
+      "durationMillis": 108,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/A2_P2_jogo_enigma_pipeline/1/execution/node/139/wfapi/describe"
+        }
+      },
+      "id": "139",
+      "name": "Declarative: Post Actions",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1791933600938,
+      "durationMillis": 500,
+      "pauseDurationMillis": 0
+    }
+  ]
+}

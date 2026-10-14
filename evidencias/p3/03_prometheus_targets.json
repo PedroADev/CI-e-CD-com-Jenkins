@@ -1,0 +1,37 @@
+{
+  "status": "success",
+  "data": {
+    "activeTargets": [
+      {
+        "discoveredLabels": {
+          "__address__": "api:8080",
+          "__always_scrape_classic_histograms__": "false",
+          "__convert_classic_histograms_to_nhcb__": "false",
+          "__metrics_path__": "/actuator/prometheus",
+          "__scheme__": "http",
+          "__scrape_interval__": "15s",
+          "__scrape_native_histograms__": "false",
+          "__scrape_timeout__": "10s",
+          "job": "jogo-enigma-api"
+        },
+        "labels": {
+          "instance": "api:8080",
+          "job": "jogo-enigma-api"
+        },
+        "scrapePool": "jogo-enigma-api",
+        "scrapeUrl": "http://api:8080/actuator/prometheus",
+        "globalUrl": "http://api:8080/actuator/prometheus",
+        "lastError": "",
+        "lastScrape": "2026-10-14T00:25:13.487512095Z",
+        "lastScrapeDuration": 0.011154487,
+        "health": "up",
+        "scrapeInterval": "15s",
+        "scrapeTimeout": "10s"
+      }
+    ],
+    "droppedTargets": [],
+    "droppedTargetCounts": {
+      "jogo-enigma-api": 0
+    }
+  }
+}
